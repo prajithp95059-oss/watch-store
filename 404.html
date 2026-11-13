@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>404 – Page not found | Stackly Watches</title>
+<meta name="description" content="The page you are looking for could not be found. Go back or return to the Stackly Watches home page." />
+<meta name="robots" content="noindex, follow" />
+<meta name="theme-color" content="#111b33" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+/* ==========================================================
+   Stackly Watches — 404 (site tokens + animations)
+   ========================================================== */
+:root{--cream:#f8f3ea;--sand:#f1dfd5;--ink:#111b33;--ink2:#0b1325;--brown:#8c2f39;--gold:#2a8c8a;--teal:#5fd0cc;--forest:#16233f;--white:#fffdf8;--h:'Cormorant Garamond',Georgia,serif;--b:'Outfit',system-ui,sans-serif;--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;-webkit-text-size-adjust:100%}
+body{font-family:var(--b);background:var(--ink2);color:var(--cream);line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+img{display:block;max-width:100%}
+h1{font-family:var(--h);font-weight:600;line-height:1.1;color:#fff;text-wrap:balance}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+.wrap{width:min(92%,1200px);margin-inline:auto}
+
+/* ----- the site's keyframes ----- */
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes up{to{transform:none}}
+@keyframes show{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:scale(.5)}}
+@keyframes float{50%{transform:translateY(-14px)}}
+@keyframes zoom{to{transform:scale(1)}}
+@keyframes load{to{transform:scaleX(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes tick{to{transform:rotate(360deg)}}
+
+/* progress bar (burgundy → teal) */
+#bar{position:fixed;top:0;left:0;height:4px;width:100%;background:linear-gradient(90deg,var(--brown),var(--gold));transform:scaleX(0);transform-origin:left;z-index:100;animation:load 1.1s var(--ease) .1s forwards}
+
+/* logo */
+.logo{position:absolute;top:clamp(16px,3vh,28px);left:50%;transform:translateX(-50%);z-index:3;opacity:0;animation:show .8s .2s forwards}
+.logo img{height:44px;width:auto;background:none}
+
+/* buttons (same pill style + shine as the site) */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 30px;border-radius:50px;font:500 1rem var(--b);cursor:pointer;border:2px solid var(--brown);background:var(--brown);color:#fff;transition:transform .35s,background .35s,color .35s,border-color .35s,box-shadow .35s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,0,0,.3)}
+.btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:.7s}
+.btn:hover::after{left:130%}
+.btn svg{transition:transform .3s}
+.btn.rose:hover{background:transparent;border-color:#fff;color:#fff}
+.btn.rose:hover svg{transform:translateX(4px)}
+.btn.ghost{background:transparent;color:#fff;border-color:#fff}
+.btn.ghost:hover{background:#fff;color:var(--ink)}
+.btn.ghost:hover svg{transform:translateX(-4px)}
+
+/* ---------- 404 page ---------- */
+.e404{position:relative;min-height:100vh;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden;padding:clamp(5rem,10vh,6rem) 0 clamp(2rem,6vh,4rem);color:var(--cream)}
+.e404 .ph{position:absolute;inset:-8% 0;z-index:0;background:var(--ink2);overflow:hidden}
+.e404 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45;transform:scale(1.12);animation:zoom 2.4s var(--ease) forwards;background:none}
+.e404::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(60% 55% at 85% 8%,rgba(42,140,138,.30),transparent 70%),radial-gradient(55% 60% at 8% 92%,rgba(140,47,57,.34),transparent 70%),linear-gradient(0deg,rgba(11,19,37,.95),rgba(17,27,51,.82) 60%,rgba(17,27,51,.68))}
+/* soft floating orbs, like the home hero */
+.orb{position:absolute;z-index:1;border-radius:50%;filter:blur(60px);pointer-events:none;animation:float 9s ease-in-out infinite}
+.orb.o1{width:340px;height:340px;background:rgba(140,47,57,.28);top:-110px;left:-110px}
+.orb.o2{width:300px;height:300px;background:rgba(42,140,138,.26);bottom:-100px;right:-90px;animation-duration:11s;animation-direction:reverse}
+.e404 .wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+.tag{display:inline-block;background:var(--sand);color:var(--brown);padding:6px 18px;border-radius:50px;font-weight:500;font-size:.9rem;margin-bottom:.6rem;animation:pop .8s .1s both}
+
+/* 4 [watch] 4 */
+.e404-num{display:flex;align-items:center;justify-content:center;gap:.04em;font-family:var(--h);font-weight:600;font-size:clamp(5.5rem,24vw,13rem);line-height:1;color:var(--cream);letter-spacing:-.02em;margin:.1em 0 .18em;user-select:none;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.e404-num>span{display:block;transform:translateY(110%);opacity:0;animation:up .9s var(--ease) .1s forwards,show .9s .1s forwards}
+.e404-num>span:nth-child(2){animation-delay:.18s}
+.e404-num>span:last-child{animation-delay:.26s}
+/* the "0" is a watch face */
+.dial{width:.78em;height:.78em;display:block;filter:drop-shadow(0 6px 16px rgba(0,0,0,.5))}
+.dial .case{fill:var(--ink);stroke:var(--teal);stroke-width:4}
+.dial .bezel{fill:none;stroke:var(--brown);stroke-width:3;stroke-dasharray:1.4 5.6}
+.dial .mk{stroke:var(--cream);stroke-width:3;stroke-linecap:round}
+.dial .mk.q{stroke:var(--teal);stroke-width:4.5}
+.dial .hand{transform-origin:60px 60px;transform-box:view-box}
+.dial .hr{stroke:var(--cream);stroke-width:4.5;stroke-linecap:round;animation:tick 720s linear infinite}
+.dial .mn{stroke:var(--cream);stroke-width:3;stroke-linecap:round;animation:tick 60s linear infinite}
+.dial .sc{stroke:var(--brown);stroke-width:1.6;stroke-linecap:round;animation:tick 6s linear infinite}
+.dial .pin{fill:var(--brown)}
+
+/* heading reveals line by line */
+.e404 h1{font-size:clamp(2rem,5.2vw,3.4rem);max-width:24ch;margin-bottom:1rem;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.e404 h1 span{display:block;overflow:hidden;padding-bottom:.08em}
+.e404 h1 b{display:inline-block;font-weight:600;transform:translateY(110%);animation:up .9s var(--ease) .1s forwards}
+.e404 h1 span:nth-child(2) b{animation-delay:.25s}
+.e404 h1 i{font-style:italic;color:var(--teal)}
+.e404 p.lead{max-width:52ch;margin-bottom:2rem;color:#d5dae8;font-size:1.1rem;font-weight:300;opacity:0;animation:show .8s .7s forwards}
+.e404 .btn-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;opacity:0;animation:show .8s .9s forwards}
+@media (max-width:600px){
+  .e404 .btn-row{flex-direction:column;align-items:stretch;width:100%;max-width:340px}
+  .e404 .btn{width:100%}
+  .e404 p.lead{margin-bottom:1.6rem}
+}
+@media (max-width:380px){.e404-num{font-size:clamp(4.6rem,25vw,5.5rem)}}
+@media (max-height:560px) and (orientation:landscape){
+  .e404{min-height:auto;padding:4.5rem 0 1.5rem}
+  .e404-num{font-size:clamp(4rem,16vh,6.5rem);margin:.05em 0 .1em}
+  .e404 h1{font-size:1.6rem;margin-bottom:.6rem}
+  .e404 p.lead{margin-bottom:1.2rem}
+  .logo img{height:34px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  #bar{transform:scaleX(1)}
+  .e404-num>span,.e404 h1 b{transform:none;opacity:1}
+  .e404 p.lead,.e404 .btn-row,.logo{opacity:1}
+  .e404 .ph img{transform:none}
+  /* freeze the watch at 10:10 */
+  .dial .hr{transform:rotate(305deg)}
+  .dial .mn{transform:rotate(60deg)}
+  .dial .sc{transform:rotate(150deg)}
+}
+</style>
+<style id="pl-css">
+#pl{position:fixed;inset:0;z-index:99999;background:#16233f;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;transition:opacity .6s ease,visibility .6s ease}
+#pl.done{opacity:0;visibility:hidden;pointer-events:none}
+#pl svg{width:96px;height:96px;overflow:visible}
+#pl .r{fill:none;stroke:#f8f3ea;stroke-width:2.5;opacity:.9}
+#pl .t{stroke:#f8f3ea;stroke-width:2;stroke-linecap:round;opacity:.5}
+#pl .arc{fill:none;stroke:#2a8c8a;stroke-width:3;stroke-linecap:round;stroke-dasharray:60 240;transform-origin:50px 50px;animation:pls 1.4s linear infinite}
+#pl .h{stroke:#f8f3ea;stroke-width:3;stroke-linecap:round;transform-origin:50px 50px;animation:pls 6s linear infinite}
+#pl .m{stroke:#f8f3ea;stroke-width:2.5;stroke-linecap:round;transform-origin:50px 50px;animation:pls 1.4s linear infinite}
+#pl .s{stroke:#c0505b;stroke-width:1.5;stroke-linecap:round;transform-origin:50px 50px;animation:pls 1.4s linear infinite}
+#pl .c{fill:#c0505b}
+#pl img{height:38px;width:auto;opacity:.95;background:none!important}
+#pl p{margin:0;font:500 .8rem 'Outfit',sans-serif;letter-spacing:.35em;text-transform:uppercase;color:#f1dfd5;opacity:.7;animation:plp 1.6s ease-in-out infinite}
+@keyframes pls{to{transform:rotate(360deg)}}
+@keyframes plp{50%{opacity:.25}}
+@media(prefers-reduced-motion:reduce){#pl .arc,#pl .h,#pl .m,#pl .s,#pl p{animation-duration:12s}}
+</style>
+</head>
+<body>
+<div id="pl" role="status" aria-label="Loading"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="r" cx="50" cy="50" r="46"/><path class="t" d="M50 8v6M92 50h-6M50 92v-6M8 50h6"/><circle class="arc" cx="50" cy="50" r="46"/><line class="h" x1="50" y1="50" x2="50" y2="30"/><line class="m" x1="50" y1="50" x2="50" y2="20"/><line class="s" x1="50" y1="56" x2="50" y2="16"/><circle class="c" cx="50" cy="50" r="3"/></svg><img src="stackly-logo.webp" alt=""><p>Time, worn well</p></div>
+<script>(function(){var p=document.getElementById('pl'),t=Date.now(),d=false;function h(){if(d)return;d=true;setTimeout(function(){p.classList.add('done');setTimeout(function(){p.remove()},700)},Math.max(0,700-(Date.now()-t)))}if(document.readyState==='complete')h();else addEventListener('load',h);setTimeout(h,4000)})();</script>
+
+
+<div id="bar"></div>
+<main id="main">
+<section class="e404">
+  <a class="logo" href="index.html" aria-label="Stackly Watches home"><img src="stackly-logo.webp" alt="Stackly logo" /></a>
+  <div class="ph">
+    <img id="bgimg" src="./assets/Row of luxury watches.webp" alt="" decoding="async" />
+  </div>
+  <span class="orb o1" aria-hidden="true"></span><span class="orb o2" aria-hidden="true"></span>
+  <div class="wrap">
+    <span class="tag">Error 404</span>
+    <div class="e404-num" aria-hidden="true">
+      <span>4</span>
+      <span>
+        <svg class="dial" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="case" cx="60" cy="60" r="56"/>
+          <circle class="bezel" cx="60" cy="60" r="50"/>
+          <g>
+            <line class="mk q" x1="60" y1="12" x2="60" y2="22"/>
+            <line class="mk q" x1="108" y1="60" x2="98" y2="60"/>
+            <line class="mk q" x1="60" y1="108" x2="60" y2="98"/>
+            <line class="mk q" x1="12" y1="60" x2="22" y2="60"/>
+            <line class="mk" x1="84" y1="18.5" x2="80" y2="25.4"/>
+            <line class="mk" x1="101.5" y1="36" x2="94.6" y2="40"/>
+            <line class="mk" x1="101.5" y1="84" x2="94.6" y2="80"/>
+            <line class="mk" x1="84" y1="101.5" x2="80" y2="94.6"/>
+            <line class="mk" x1="36" y1="101.5" x2="40" y2="94.6"/>
+            <line class="mk" x1="18.5" y1="84" x2="25.4" y2="80"/>
+            <line class="mk" x1="18.5" y1="36" x2="25.4" y2="40"/>
+            <line class="mk" x1="36" y1="18.5" x2="40" y2="25.4"/>
+          </g>
+          <line class="hand hr" x1="60" y1="60" x2="60" y2="35"/>
+          <line class="hand mn" x1="60" y1="60" x2="60" y2="24"/>
+          <line class="hand sc" x1="60" y1="68" x2="60" y2="20"/>
+          <circle class="pin" cx="60" cy="60" r="4"/>
+        </svg>
+      </span>
+      <span>4</span>
+    </div>
+    <h1><span><b>This page is out of</b></span><span><b>sync with <i>time</i></b></span></h1>
+    <p class="lead">The page you are looking for may have moved, been renamed or simply run out of time. Go back to where you were, or head home to browse our collections and find your next watch.</p>
+    <div class="btn-row">
+      <button type="button" class="btn ghost back" id="goBack"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>Go back</span></button>
+      <a class="btn rose" href="index.html"><span>Back to home</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  /* go back to the previous page and restore its scroll position */
+  try{if('scrollRestoration' in history)history.scrollRestoration='auto'}catch(_){}
+  var b=document.getElementById('goBack');
+  if(b){
+    b.addEventListener('click',function(){
+      if(window.history.length>1){
+        var t=setTimeout(function(){window.location.href='index.html'},900);
+        var stop=function(){clearTimeout(t)};
+        window.addEventListener('pagehide',stop);document.addEventListener('visibilitychange',stop);
+        window.history.back();
+      }else{window.location.href='index.html'}
+    });
+  }
+
+  /* background image fallback (second watch photo, then plain navy) */
+  var bg=document.getElementById('bgimg');
+  if(bg){
+    var fallbacks=['assets/bg2.webp'];
+    bg.addEventListener('error',function(){
+      var next=fallbacks.shift();
+      if(next){bg.src=next}else{bg.style.display='none'}
+    });
+  }
+
+  /* logo fallback: hide if the file path is different on this page */
+  var lg=document.querySelector('.logo img');
+  if(lg)lg.addEventListener('error',function(){lg.parentNode.style.display='none'},{once:true});
+})();
+</script>
+</body>
+</html>
